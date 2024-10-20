@@ -71,9 +71,9 @@ Choose the latest version of Kingfisher and integrate it into your project.
 
 
 ## Screenshots
-| Home Screen | Product Details | Order Screen |
+| Home Screen | Product Details | Order Screen | 
 |-------------|---------------|----------|
-
+| ![Home Screen](https://github.com/waqas-git/ShopingCartAssignment/blob/main/Screenshots/Home.png) | ![Home Screen](https://github.com/waqas-git/ShopingCartAssignment/blob/main/Screenshots/Deatils_screen.png) | ![Home Screen](https://github.com/waqas-git/ShopingCartAssignment/blob/main/Screenshots/Delete_Order.png) | 
 
 ### Prerequisites
 
@@ -83,6 +83,6 @@ Choose the latest version of Kingfisher and integrate it into your project.
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/username/MyMobileApp.git
+git clone https://github.com/waqas-git/ShopingCartAssignment.git
 
 
