@@ -15,13 +15,25 @@ struct AppetizerView: View {
                 List(appetizerViewModel.appetizers) { appetizers in
                     AppetizerCell(appetizer: appetizers).onTapGesture {
                         appetizerViewModel.selectedAppetizer = appetizers
-                        print(appetizers.name)
+                        appetizerViewModel.isShowingDetails = true
                     }
                 }
+                .navigationTitle("Appetizers")
+                .disabled(appetizerViewModel.isShowingDetails)
+                .listStyle(.plain)
             }.task {
                 //The .task modifier is used to automatically call the getAppetizer() method when the view appears. This ensures the data is fetched as soon as the view loads.
                 appetizerViewModel.getAppetizer()
             }
+            .blur(radius: appetizerViewModel.isShowingDetails ? 20: 0)
+            
+            if(appetizerViewModel.isShowingDetails){
+                AppetizerDetailView(appetizer: appetizerViewModel.selectedAppetizer!, isShowDetail: $appetizerViewModel.isShowingDetails)
+            }
+        }.alert(item: $appetizerViewModel.alertItem) {alertItem in
+            Alert(title: alertItem.title,
+                  message: alertItem.message,
+                  dismissButton: alertItem.dismissButton)
         }
     }
 }

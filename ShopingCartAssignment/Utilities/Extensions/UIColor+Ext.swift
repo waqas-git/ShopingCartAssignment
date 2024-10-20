@@ -6,3 +6,12 @@
 //
 
 import Foundation
+import SwiftUI
+
+extension Color{
+    static let Primary = Color("Primary")
+}
+
+extension UIColor{
+    static let Primary = UIColor(named: "Primary")
+}

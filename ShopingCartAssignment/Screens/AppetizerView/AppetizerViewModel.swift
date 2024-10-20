@@ -12,6 +12,8 @@ import SwiftUI
 @Observable final class AppetizerViewModel {
     var appetizers: [Appetizer] = []
     var selectedAppetizer: Appetizer?
+    var alertItem : AlertItem?
+    var isShowingDetails = false
     
     func getAppetizer() {
         Task {
@@ -21,11 +23,13 @@ import SwiftUI
                 if let appError = error as? AppError{
                     switch appError{
                     case .invalidURL:
-                        print("invalidURL")
+                        alertItem = AlertContext.invalidURL
                     case .invalidData:
-                        print("invalidData")
+                        alertItem = AlertContext.invalidData
                     case .invalidResponse:
-                        print("invalidResponse")
+                        alertItem = AlertContext.invalidResponse
+                    case .unableToComplete:
+                        alertItem = AlertContext.unableToComplete
                     }
                 }
             }
