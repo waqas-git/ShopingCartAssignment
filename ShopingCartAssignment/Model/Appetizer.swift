@@ -12,7 +12,7 @@ import Foundation
 //    let request: [Appetizer]
 //}
 // MARK: - AppitizerRespnse
-struct APIResponse<T: Decodable>: Decodable {
+struct APIResponse<T: Codable>: Decodable {
     let request: [T]
 }
 

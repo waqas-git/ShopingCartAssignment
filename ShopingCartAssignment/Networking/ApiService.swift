@@ -36,7 +36,7 @@ class ApiService {
         // Validates the URL string and returns a URL object or throws an error.
         private func validateURL(_ urlString: String) throws -> URL {
             guard let url = URL(string: urlString) else {
-                throw AppError.invalidURL
+                throw NetworkError.invalidURL
             }
             return url
         }

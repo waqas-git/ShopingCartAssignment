@@ -16,19 +16,19 @@ struct AlertItem : Identifiable{
 
 struct AlertContext {
     //MARK: - Network Alerts
-    static let invalidData = AlertItem(title: Text("Server Error"),
-                                       message: Text(AppError.invalidData.rawValue),
-                                       dismissButton: .default(Text("OK")))
     
-    static let invalidResponse = AlertItem(title: Text("Server Error"),
-                                           message: Text(AppError.invalidResponse.rawValue),
-                                           dismissButton: .default(Text("OK")))
-    
-    static let invalidURL = AlertItem(title: Text("Server Error"),
-                                      message: Text(AppError.invalidURL.rawValue),
-                                      dismissButton: .default(Text("OK")))
-    
-    static let unableToComplete = AlertItem(title: Text("Server Error"),
-                                            message: Text(AppError.unableToComplete.rawValue),
-                                            dismissButton: .default(Text("OK")))
+    static func makeAlert(for error: NetworkError) -> AlertItem {
+            return AlertItem(
+                title: Text("Server Error"),
+                message: Text(error.localizedDescription),
+                dismissButton: .default(Text("OK"))
+            )
+        }
+
+        // Network Alerts using the helper method
+        static let invalidData = makeAlert(for: .badRequest)
+        static let invalidResponse = makeAlert(for: .invalidResponse)
+        static let invalidURL = makeAlert(for: .invalidURL)
+        static let unableToComplete = makeAlert(for: .unableToComplete)
+        static let decodingError = makeAlert(for: .decodingError)
 }

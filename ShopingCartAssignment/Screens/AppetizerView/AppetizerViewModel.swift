@@ -20,16 +20,18 @@ import SwiftUI
             do{
                 appetizers = try await ApiService.shared.fetchAppetizers()
             } catch {
-                if let appError = error as? AppError{
-                    switch appError{
+                if let networkError = error as? NetworkError{
+                    switch networkError{
                     case .invalidURL:
                         alertItem = AlertContext.invalidURL
-                    case .invalidData:
+                    case .badRequest:
                         alertItem = AlertContext.invalidData
                     case .invalidResponse:
                         alertItem = AlertContext.invalidResponse
                     case .unableToComplete:
                         alertItem = AlertContext.unableToComplete
+                    case .decodingError:
+                        alertItem = AlertContext.decodingError
                     }
                 }
             }

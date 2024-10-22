@@ -16,7 +16,7 @@ struct AppetizerCell: View {
 
                 KFImage(imageURL)
                     .placeholder {
-                        Image(systemName: "food-placeholder")
+                        Image("food-placeholder")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 100, height: 100)
