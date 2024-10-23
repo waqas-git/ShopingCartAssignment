@@ -1,0 +1,13 @@
+workflows:
+    sample-workflow:
+        name: Appetizers Pipeline
+        max_build_duration: 120
+        instance_type: mac_mini_m2
+    scripts:
+      - name: CICD Started
+        script: echo "Hello CICD"
+    publishing:
+      email:
+        recipients:
+          - waqasahmed.uol1@gmail.com
+          - waqas.apple.acc@gmail.com
