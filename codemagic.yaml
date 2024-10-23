@@ -10,7 +10,7 @@ workflows:
         script: |
           xcodebuild build \
             -project "ShopingCartAssignment.xcodeproj" \
-            -scheme "Appetizers" \
+            -scheme "ShopingCartAssignment" \
             CODE_SIGN_IDENTITY="" \
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGNING_ALLOWED=NO
