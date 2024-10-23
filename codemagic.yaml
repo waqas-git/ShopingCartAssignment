@@ -9,7 +9,7 @@ workflows:
       - name: Appetizer App
         script: |
           xcodebuild build \
-            -workspace "ShopingCartAssignment.xcodeproj" \
+            -project "ShopingCartAssignment.xcodeproj" \
             -scheme "Appetizers" \
             CODE_SIGN_IDENTITY="" \
             CODE_SIGNING_REQUIRED=NO \
