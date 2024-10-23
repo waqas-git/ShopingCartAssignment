@@ -1,11 +1,19 @@
 workflows:
-  sample-workflow:
-    name: Appetizers Pipeline
-    max_build_duration: 120
-    instance_type: mac_mini_m2
+    sample-workflow:
+        name: Appetizers Pipeline
+        max_build_duration: 120
+        instance_type: mac_mini_m2
     scripts:
       - name: CICD Started
         script: echo "Hello CICD"
+      - name: Appetizer App
+        script: xcodebuild build \
+           -workspace "ShopingCartAssignment.xcodeproj" \
+           -scheme "Appetizers" \
+           CODE_SIGN_IDENTITY="" \
+           CODE_SIGNING_REQUIRED=NO \
+           CODE_SIGNING_ALLOWED=NO
+        
     publishing:
       email:
         recipients:
